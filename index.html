@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dublin Bus - Online Bus Ticket Booking With DOM Manipulation</title>
+
+    <!-- Font: Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Font Railway -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+
+    <!-- Link: Fontawesome CDN -->
+    <script src="https://kit.fontawesome.com/f811dd765f.js" crossorigin="anonymous"></script>
+    <!-- daisy ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link: TailwindCSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1dd100',
+                        secondary: '#030712',
+                        couponOne: '#ffbf0f',
+                        couponTwo: '#f78c9c',
+                        mobileMenu: '#f7f8f8',
+                        body: '#03071299',
+                        buttonColor: 'rgba(29, 209, 0, 0.15)',
+                    },
+                    fontFamily: {
+                        RaleWay: 'Raleway',
+                        Inter: 'Inter',
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body>
+    <main>
+        <!-- sit booking section -->
+         <section class="bg-white px-8 py-5 w-11/12 mx-auto  rounded-2xl  shadow-sm grid gap-5 grid-cols-3">
+            <!-- seat section -->
+             <div class=" grid col-span-2 ">
+                <div>
+                    <h2 class="font-semibold text-2xl text-secondary">Select Your seat</h2>
+                </div>
+                <!-- add border -->
+                 <div class="border-b-2 border-dashed my-4"></div>
+                <div class="flex justify-between">
+                    <p>
+                        <i class="fa-solid fa-couch"></i>
+                        <span>Available</span>
+                    </p>
+                    <p class="text-primary">
+                        <i class="fa-solid fa-couch"></i>
+                        <span>Available</span>
+                    </p>
+                </div>
+                <!-- Add border -->
+                <div class="border-b-2 border-dashed my-4"></div>
+                <!-- section seat section start -->
+                 <section class="grid grid-cols-12 gap-y-5 mr-10 items-center gap-x-10 font-Inter">
+                     <p class="col-span-10"></p>
+                     <button class="btn  col-span-2">
+                        <img src="assets/wheel.png" alt="">
+                    </button>
+                    <!-- when sit number A -->
+                    <p class="col-span-1">A</p>
+                    <button  onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">A1</button>
+                    <button onclick="handlreSeat(this)" onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">A2</button>
+                    <p class="col-span-3"></p>
+                    <button  onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">A3</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">A4</button>
+                    <!-- when sit number B -->
+                    <p class="col-span-1">B</p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">B1</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">B2</button>
+                    <p class="col-span-3"></p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">B3</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">B4</button>
+                    <!-- when sit number C -->
+                    <p class="col-span-1">C</p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">C1</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">C2</button>
+                    <p class="col-span-3"></p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">C3</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">C4</button>
+                    <!-- when sit number D -->
+                    <p class="col-span-1">D</p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">D1</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">D2</button>
+                    <p class="col-span-3"></p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">D3</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">D4</button>
+                    <!-- when sit number E -->
+                    <p class="col-span-1">E</p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">E1</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">E2</button>
+                    <p class="col-span-3"></p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">E3</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">E4</button>
+                    <!-- when sit number F -->
+                    <p class="col-span-1">F</p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">F1</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">F2</button>
+                    <p class="col-span-3"></p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">F3</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">F4</button>
+                    <!-- when sit number G -->
+                    <p class="col-span-1">G</p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">G1</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">G2</button>
+                    <p class="col-span-3"></p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">G3</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">G4</button>
+                    <!-- when sit number H -->
+                    <p class="col-span-1">G</p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">H1</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">H2</button>
+                    <p class="col-span-3"></p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">H3</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">H4</button>
+                    <!-- when sit number I -->
+                    <p class="col-span-1">I</p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">I1</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">I2</button>
+                    <p class="col-span-3"></p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">I3</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">I4</button>
+                    <!-- when sit number J -->
+                    <p class="col-span-1">J</p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">J1</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">J2</button>
+                    <p class="col-span-3"></p>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">J3</button>
+                    <button onclick="handlreSeat(this)" class="col-span-2 btn btn-mid hover:bg-secondary hover:text-white">J4</button>
+
+                   
+
+                 </section>
+             </div>
+
+
+
+             <!-- input section  -->
+              <div class="">
+                <div>
+                    <h2 class="font-semibold text-2xl text-secondary">Select Your seat</h2>
+                </div>
+                <div class="border-b-2 border-dashed my-4"></div>
+                <section>
+                    <div class="bg-[f7f8f8] shadow-lg p-8 rounded-xl">
+                        <h3 class="flex justify-between">  
+                            <p class="flex">
+                                <span class="font-bold text-lg">Seat</span>
+                               <span id="totalSeat" class="flex justify-center items-center bg-primary w-5 h-5 text-white rounded-full">0</span>
+                            <p class="font-bold text-lg">Class</p>
+                            <p class="font-bold text-lg">Price</p>
+                        </h3>
+                        <div class="border-b-2 border-dashed my-4"></div>
+                        <ul id="seatSelected" class="space-y-6">
+                            <h3 id="default-text" class="text-error font-semibold text-xl  capitalize text-center">No Seat Booked</h3>
+                        </ul>
+                        <!-- divider  -->
+                        <div class="border-b-2 border-dashed my-4"></div>
+
+                        <!-- total price and  -->
+                         <div class="flex justify-between">
+                            <p class="font-bold text-lg">Total Price</p>
+                            <p class="font-bold text-lg">
+                                <span>BDT: </span>
+                                <span id="priceIncrease">****</span>
+                            </p>
+                         </div>
+                         <!-- divider -->
+                         <div class="border-b-2 border-dashed my-4"></div>
+                         <div class="flex items-center gap-2 border-y-2 text-lg  font-semibold justify-between">
+                            <input id="cupon-input" type="text" disabled placeholder="have any cupon?" class="input  my-2 py-2 border-dashed w-full ">
+                            <button id="cupon-btn" class="btn btn-primary" disabled>Apply</button>
+                         </div>
+                         <div class="flex justify-between">
+                            <p class="font-bold text-lg">Grand Price</p>
+                            <p class="font-bold text-lg">
+                                <span>BDT: </span>
+                                <span >****</span>
+                            </p>
+                         </div>
+                         <!-- form section  -->
+                          <div class="my-3">
+                            <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                                <form class="card-body">
+                                  <div class="form-control">
+                                    <label class="label">
+                                      <span  class="label-text font-bold text-xl">Pressenger Name</span>
+                                    </label>
+                                    <input type="email" placeholder="Enter Your Name" class="input input-bordered" required />
+                                  </div>
+                                  <div class="form-control">
+                                    <label class="label">
+                                      <span class="label-text font-bold text-xl">Phone Number</span>
+                                    </label>
+                                    <input type="password" placeholder="Enter Your Phone Number" class="input input-bordered" required />
+                                  </div>
+                                  <div class="form-control">
+                                    <label class="label">
+                                      <span  class="label-text font-bold text-xl">Your Email</span>
+                                    </label>
+                                    <input type="email" placeholder="Enter Your Email" class="input input-bordered" required />
+                                  </div>
+                                  <div class="form-control mt-6">
+                                    <button disabled class="btn btn-primary w-full">Login</button>
+                                        
+                                    
+                                  </div>
+                                </form>
+                              </div>
+                          </div>
+                    </div>
+                </section>
+              </div>
+         </section>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>
